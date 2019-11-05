@@ -68,7 +68,7 @@ void main(void)
 {
     SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ | SYSCTL_OSC_MAIN);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UART3);
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
 
     GPIOPinConfigure(GPIO_PC6_U3RX);
     GPIOPinConfigure(GPIO_PC7_U3TX);
@@ -82,6 +82,8 @@ void main(void)
     UARTIntRegister(UART3_BASE, UART3IntHandler);
     IntMasterEnable();
 
+    //UC1701Init(60000);
+    //UC1701Clear();
     PortFunctionInit();
     lcd_init();
     lcd_printf(1, 0, Received_Voltage_Current_SetVoltage);
